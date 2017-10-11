@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DAA1F107-46E1-446C-BD18-75AFA27037C0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>NeuralNetworkConstructor.VisualizerApp</RootNamespace>
+    <AssemblyName>NeuralNetworkConstructor.VisualizerApp</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WriteableBitmapEx.Wpf, Version=1.5.0.0, Culture=neutral, PublicKeyToken=50375ca6144f1c69, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\WriteableBitmapEx.1.5.1.0\lib\net40\WriteableBitmapEx.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.DataGrid, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.DataGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Configuration\Bootstrap.cs" />
+    <Compile Include="Configuration\BusConfig.cs" />
+    <Compile Include="Handlers\DrawEdges.cs" />
+    <Compile Include="Handlers\DrawEdgesHandler.cs" />
+    <Compile Include="Handlers\CalculateVoronoiEdges.cs" />
+    <Compile Include="Handlers\CalculateVoronoiEdgesHandler.cs" />
+    <Compile Include="Handlers\CreateShapesContainer.cs" />
+    <Compile Include="Handlers\CreateShapesContainerHandler.cs" />
+    <Compile Include="Handlers\DrawPoints.cs" />
+    <Compile Include="Handlers\DrawPointsHandler.cs" />
+    <Compile Include="Handlers\DrawLineSegments.cs" />
+    <Compile Include="Handlers\DrawLineSegmentsHandler.cs" />
+    <Compile Include="Handlers\DrawPolygon.cs" />
+    <Compile Include="Handlers\DrawPolygonHandler.cs" />
+    <Compile Include="Handlers\FilterEdgesTouchingSameCategory.cs" />
+    <Compile Include="Handlers\FilterEdgesTouchingSameCategoryHandler.cs" />
+    <Compile Include="Handlers\GenerateRandomPoints.cs" />
+    <Compile Include="Handlers\GenerateRandomPointsHandler.cs" />
+    <Compile Include="Handlers\MakeConvexHull.cs" />
+    <Compile Include="Handlers\MakeConvexHullHandler.cs" />
+    <Compile Include="Handlers\MakeMultiColorTriangulation.cs" />
+    <Compile Include="Handlers\MakeMultiColorTriangulationHandler.cs" />
+    <Compile Include="Handlers\MakeTriangulation.cs" />
+    <Compile Include="Handlers\MakeTriangulationHandler.cs" />
+    <Compile Include="NeuralNetworkTreeWindow.xaml.cs">
+      <DependentUpon>NeuralNetworkTreeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\EdgeViewModel.cs" />
+    <Compile Include="ViewModels\PlottedFeaturesViewModel.cs" />
+    <Compile Include="ViewModels\FeatureCategoryViewModel.cs" />
+    <Compile Include="ViewModels\FeatureViewModel.cs" />
+    <Compile Include="ViewModels\VertexViewModel.cs" />
+    <Page Include="DrawingWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DrawingWindow.xaml.cs">
+      <DependentUpon>DrawingWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="NeuralNetworkTreeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Components\NeuralNetworkConstructor.DispatcherLoggerComponent\NeuralNetworkConstructor.DispatcherLoggerComponent.csproj">
+      <Project>{1D626DED-BE53-4777-B43B-ADDDA086E9A3}</Project>
+      <Name>NeuralNetworkConstructor.DispatcherLoggerComponent</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Components\NeuralNetworkConstructor.Drawing.Core\NeuralNetworkConstructor.Drawing.Core.csproj">
+      <Project>{eba34f60-214c-4e68-846f-cbecfbfb8248}</Project>
+      <Name>NeuralNetworkConstructor.Drawing.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Components\NeuralNetworkConstructor.Drawing.SingleDraw\NeuralNetworkConstructor.Drawing.SingleDraw.csproj">
+      <Project>{53e90582-0413-44bc-94b9-988e73d5a23b}</Project>
+      <Name>NeuralNetworkConstructor.Drawing.SingleDraw</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Components\NeuralNetworkConstructor.Drawing.SingleImage\NeuralNetworkConstructor.Drawing.SingleImage.csproj">
+      <Project>{d86fdd86-b668-491d-82de-412bb8c19d87}</Project>
+      <Name>NeuralNetworkConstructor.Drawing.SingleImage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\NeuralNetworkConstructor.Diagrams\NeuralNetworkConstructor.Diagrams.csproj">
+      <Project>{b2dc7b69-d6dd-4e88-85ec-4f6fd97e122d}</Project>
+      <Name>NeuralNetworkConstructor.Diagrams</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework\NeuralNetworkConstructor.Core\NeuralNetworkConstructor.Core.csproj">
+      <Project>{8681a7fd-6af6-43a4-9218-08234841559c}</Project>
+      <Name>NeuralNetworkConstructor.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Logic\NeuralNetworkConstructor.Algorithms\NeuralNetworkConstructor.Algorithms.csproj">
+      <Project>{b040069a-0fd4-4cdc-9cba-238448495e4e}</Project>
+      <Name>NeuralNetworkConstructor.Algorithms</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

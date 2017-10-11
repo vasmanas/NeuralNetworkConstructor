@@ -1,0 +1,72 @@
+﻿<Window x:Class="NeuralNetworkConstructor.VisualizerApp.DrawingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NeuralNetworkConstructor.VisualizerApp"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="DrawingWindow" Height="800" Width="1200">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="100" />
+        </Grid.ColumnDefinitions>
+        <Canvas Visibility="Visible" Grid.Column="0" Grid.Row="0" Name="Surface" Height="Auto" Width="Auto" Background="White" MouseLeftButtonDown="Surface_MouseLeftButtonDown">
+            <Image Name="InternalPainting"></Image>
+        </Canvas>
+        <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Vertical">
+            <Button Click="Save_Click">Save</Button>
+            <Button Click="Load_Click">Load</Button>
+            <Button Click="Clear_Click">Clear</Button>
+            <CheckBox Name="ClearPoints" IsChecked="True">Points</CheckBox>
+            <CheckBox Name="ClearCategories" IsChecked="False">Categories</CheckBox>
+
+            <Label Content="{Binding Path=DrawnFeatures.Count}" ContentStringFormat="Points: {0:D}" />
+            <ListView MinHeight="20" Name="CategoriesView" ItemsSource="{Binding DrawnCategories}" 
+                                  DataContext="{Binding}"
+                                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                                  ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border Height="24" Margin="1,0">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="20" />
+                                    <ColumnDefinition Width="100" />
+                                </Grid.ColumnDefinitions>
+                                <Rectangle Height="20" Width="20" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0" Grid.Row="0" Fill="{Binding Path=Brush}" ></Rectangle>
+                                <Label Grid.Column="1" Grid.Row="0" Content="{Binding Path=Features.Count}" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListView>
+
+            <xctk:ColorPicker Name="NewCategoryColor" SelectedColorChanged="NewCategoryColor_SelectedColorChanged"></xctk:ColorPicker>
+
+            <TextBox Name="RandomPointCount" PreviewTextInput="TextBox_PreviewTextInput" DataObject.Pasting="TextBoxPasting">10</TextBox>
+            <Button Click="MakeRandom_Click">Make random</Button>
+
+            <Label>Algorythms:</Label>
+            <Button Click="ShowConvexHull_Click">Convex hull</Button>
+            <Button Click="Triangulate_Click">Triangulation</Button>
+            <CheckBox Name="SingleColor" IsChecked="True">Single color</CheckBox>
+            <Button Click="ShowVoronoiDiagram_Click">Voronoi diagram</Button>
+            <Button Click="ShowVoronoiCategoryDiagram_Click">Voronoi category</Button>
+            <Button Click="ShowNNModelDiagram_Click">NN Model</Button>
+            <Label Name="InfoLog" Content="{Binding Path=Info}"/>
+        </StackPanel>
+    </Grid>
+</Window>
